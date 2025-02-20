@@ -14,9 +14,40 @@
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
--- La exportación de datos fue deseleccionada.
 
--- La exportación de datos fue deseleccionada.
+-- Volcando estructura de base de datos para rialmar
+CREATE DATABASE IF NOT EXISTS `rialmar` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci */;
+USE `rialmar`;
+
+-- Volcando estructura para tabla rialmar.books
+CREATE TABLE IF NOT EXISTS `books` (
+  `ISBN` varchar(13) NOT NULL,
+  `titulo` varchar(100) NOT NULL,
+  `autor` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`ISBN`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- Volcando datos para la tabla rialmar.books: ~2 rows (aproximadamente)
+INSERT INTO `books` (`ISBN`, `titulo`, `autor`) VALUES
+	('119312411733A', 'nuevolibro', 'autorlibro'),
+	('136519571590A', 'nuevolibro', 'autorlibro');
+
+-- Volcando estructura para tabla rialmar.users
+CREATE TABLE IF NOT EXISTS `users` (
+  `DNI` char(9) NOT NULL,
+  `nombre` varchar(50) NOT NULL,
+  `email` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`DNI`),
+  UNIQUE KEY `email` (`email`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- Volcando datos para la tabla rialmar.users: ~5 rows (aproximadamente)
+INSERT INTO `users` (`DNI`, `nombre`, `email`) VALUES
+	('18088228Q', 'Rialmar', 'rialmar2004@gmail.com'),
+	('24147157A', 'nuevousuario', 'usuario8723@gmail.com'),
+	('50872081A', 'nuevousuario', 'usuario7313@gmail.com'),
+	('92574230A', 'nuevousuario', 'usuario7821@gmail.com'),
+	('95989808A', 'nuevousuario', 'usuario6633@gmail.com');
 
 /*!40103 SET TIME_ZONE=IFNULL(@OLD_TIME_ZONE, 'system') */;
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
